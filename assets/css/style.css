@@ -3,13 +3,17 @@
   font-family: "Figtree", sans-serif;
 }
 
+html {
+  font-size: calc(15px + 0.390625vw);
+}
+
 .hero {
   position: relative;
+  overflow: hidden; /* Add overflow property to ensure child elements fit within the parent */
 }
 
 .hero-background {
   position: relative;
-  overflow: hidden;
 }
 
 .hero-overlay {
@@ -33,13 +37,27 @@
 
 .hero-body {
   position: absolute;
-  width: 100vw;
-  height: inherit;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Set height to 100% to match parent dimensions */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 2;
+}
+
+.hero-content {
+  max-width: 800px; /* Adjust the max-width as per your design */
+  padding: 0 20px; /* Add padding as needed */
+  text-align: center;
+  color: white;
+}
+
+.hero-text {
+  font-size: 2em;
+  color: white;
+  text-align: center;
 }
 
 #navbar {
@@ -72,12 +90,6 @@ i {
 
 .navbar-burger {
   color: white;
-}
-
-.hero-text {
-  font-size: 3em;
-  color: white;
-  text-align: center;
 }
 
 /*///////////*/
