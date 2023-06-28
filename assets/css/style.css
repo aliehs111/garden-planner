@@ -80,6 +80,21 @@ i {
   text-align: center;
 }
 
+.input {
+  margin-top: 100px;
+  padding-left: 200px; 
+  width: 400px;
+  text-align: center;
+
+}
+
+.submit-btn {
+  margin-top: 100px;
+  width: 80px;
+  text-align: center;
+  
+}
+
 /*///////////*/
 
 @media screen and (max-width: 1024px) {

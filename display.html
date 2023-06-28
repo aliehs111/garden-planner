@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garden Companion Search</title>
+    <!--import Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300&family=Montagu+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!--import font icons (Font-Awesome)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/leaf-solid-icon-white.png"
+    />
+  </head>
+
+  <body>
+    <!--header and navigation bar section-->
+    <nav
+      id="navbar"
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="">
+          <i class="fa-solid fa-leaf"></i>
+        </a>
+
+        <!--Hamburger menu visible on mobile-->
+        <a
+          role="button"
+          class="navbar-burger"
+          data-target="navbarItems"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarItems" class="navbar-menu" data-visibility="hidden">
+        <!--Hide by default on mobile-->
+        <div class="navbar-start"></div>
+        <div class="navbar-end">
+          <a class="navbar-item"> Home </a>
+          <a class="navbar-item"> Item 2 </a>
+          <a class="navbar-item"> Item 3 </a>
+          <a class="navbar-item"> Item 4 </a>
+          <a class="navbar-item"> Item 5 </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="control container is-max-desktop columns">
+      <div class="column">
+      <input class="input input is-success column" type="text" placeholder="Choose Plants">
+    </div>
+    <div class="column">
+      <button class="button is-primary submit-btn column">Submit</button>
+    </div>
+    </div>
+
+   
+      <div class="control container is-max-desktop columns">
+        <div class="card column">
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+            </div>
+          </div>
+        </div>
+        <div class="card column">
+          <div class="card-content">
+            <div class="content">
+              Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class = columns>
+      <div class="card column">
+        <div class="card-content">
+          <p class="title">
+            Plant name and image
+          </p>
+          <p class="subtitle">
+            Plant scientifc name
+          </p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              Share on <a href="#">Facebook</a>
+            </span>
+          </p>
+        </footer>
+      </div>
+      <div class="card column">
+        <div class="card-content">
+          <p class="title">
+            Plant name and image
+          </p>
+          <p class="subtitle">
+           Plant scientific name 
+          </p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              Share on <a href="#">Facebook</a>
+            </span>
+          </p>
+        </footer>
+      </div>
+    </div>
+   
+
+</body>
+<script async type="text/javascript" src="./assets/js/bulma.js"></script>
+</html>
