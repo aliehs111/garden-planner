@@ -10,6 +10,7 @@ html {
 .hero {
   position: relative;
   overflow: hidden; /* Add overflow property to ensure child elements fit within the parent */
+  margin-bottom: 50px;
 }
 
 .hero-background {
@@ -67,8 +68,18 @@ html {
 }
 
 i {
-  color: white;
+  color: #66683e;
   font-size: 2em;
+}
+
+#logo {
+  color: white;
+}
+
+.icon {
+  display: flex;
+  font-size: 2em;
+  margin: 2%;
 }
 
 .navbar {
@@ -90,6 +101,10 @@ i {
 
 .navbar-burger {
   color: white;
+}
+
+.column {
+  padding: 3%;
 }
 
 /*///////////*/
@@ -147,5 +162,17 @@ i {
       opacity: 0;
       max-height: 0;
     }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .columns {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .column {
+    margin: 3%;
   }
 }
