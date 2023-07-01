@@ -1,5 +1,4 @@
 let plants = [];
-let plantDescription = [];
 let plantApiRootUrl = 'https://perenual.com/api';
 let plantApiKey = 'sk-tsf9649c6f20e14401425';
 
@@ -55,7 +54,7 @@ function showPlants() {
             <button class="js-modal-trigger button is-success is-rounded" data-target="modal-js-example">
               More Information
             </button>
-     
+            <button class="local_storage button is-warning is-rounded">Add to Garden</button>
             </div>
           </div>
         </div>
@@ -65,8 +64,9 @@ function showPlants() {
     if (plants.length === 0) {
         plantsContainer.textContent = "No plants found";
         return;
-
      }
 
     plantsContainer.innerHTML=html
 }
+
+
