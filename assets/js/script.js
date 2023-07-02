@@ -11,29 +11,30 @@ let plantsContainer = document.getElementById('plants-container');
 
 document.getElementById('plantInfo').hidden = true
 
-searchBtn.addEventListener('click', function() {
-    let searchText = searchInput.value.trim()
-    let url = `${plantApiRootUrl}/species-list?page=1&key=${plantApiKey}&q=${searchText}`
-    fetch (url).then (function (response) {
-        return response.json();
+searchBtn.addEventListener('click', function () {
+  let searchText = searchInput.value.trim()
+  let url = `${plantApiRootUrl}/species-list?page=1&key=${plantApiKey}&q=${searchText}`
+  fetch(url).then(function (response) {
+    return response.json();
+  })
+    .then(function (data) {
+      plants = data.data;
+      console.log(data.data);
+      showPlants();
     })
-    .then(function(data) {
-        plants = data.data;
-        console.log(data.data);
-        showPlants();
+    .catch(function (error) {
+      console.log(error.message);
     })
-    .catch(function(error) {
-        console.log(error.message);
-    })
-}) 
+})
 
 
 function showPlants() {
-    plantsContainer.innerHTML = '';
-    let html = "";
+  plantsContainer.innerHTML = '';
+  let html = "";
 
-    for (let plant of plants) {
-        html += `
+  for (let index in plants) {
+    let plant = plants[index]
+    html += `
         <div
         class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
         <div class="card">
@@ -51,22 +52,82 @@ function showPlants() {
             <p class="title is-5">${plant.scientific_name[0]}</p>
 
       
-            <button class="js-modal-trigger button is-success is-rounded" data-target="modal-js-example">
+            <button id="${index}" class="open_modal button is-success is-rounded" data-target="plant-modal">
               More Information
             </button>
             <button class="local_storage button is-warning is-rounded">Add to Garden</button>
             </div>
           </div>
         </div>
-      </div>`
+      </div>
+     <button id="close-modal" class="modal-close is-large" aria-label="close"></button>`
 
+  }
+  if (plants.length === 0) {
+    plantsContainer.textContent = "No plants found";
+    return;
+  }
+
+  plantsContainer.innerHTML = html
+  let openModalBtns = document.querySelectorAll(".open_modal");
+  let infoModal = document.querySelector('.modal-card-title');
+
+  openModalBtns.forEach(function (el) {
+    el.addEventListener('click', function (event) {
+      modal.classList.add('is-active');
+      console.log(event.target.id);
+      let index = event.target.id;
+      let selectedPlant = plants[index]
+      console.log(selectedPlant);
+      showDescription();
+
+
+      function showDescription () {
+       infoModal.innerHTML = '';
+       let html = "";
+      
+       for (let plant of plants) {
+        // let plant = plants[index]
+      
+        html +=`
+      <div id="plant-modal" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-card has background-white py-5 px-5">
+            <header class="modal-card-head">
+              // <p class="modal-card-title">Plant Name: ${plant.common_name}</p>
+              <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <!-- Content ... -->
+              <p>watering: ${plant.watering}</p>
+              <p>sunlight: ${plant.sunlight}</p>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-success">Add to Garden</button>
+              <button id="close-modal" class="button">Cancel</button>
+            </footer>
+            <button id="close-modal" class="modal-close is-large" aria-label="close"></button>
+          </div>
+        </div>`
+      
+      }
+      
     }
-    if (plants.length === 0) {
-        plantsContainer.textContent = "No plants found";
-        return;
-     }
+      
+    });
 
-    plantsContainer.innerHTML=html
+  })
+
+ 
 }
+
+
+let modal = document.querySelector(".modal");
+let modClsBtn = document.querySelector(".modal-close");
+modClsBtn.addEventListener('click', function () {
+  modal.classList.remove('is-active');
+})
+
+
 
 
