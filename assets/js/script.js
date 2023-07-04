@@ -1,6 +1,7 @@
 let plants = [];
 let plantApiRootUrl = 'https://perenual.com/api';
 let plantApiKey = 'sk-tsf9649c6f20e14401425';
+let placeholderImg = 'https://img.freepik.com/free-vector/plant-emoji_78370-262.jpg?w=1060&t=st=1688479335~exp=1688479935~hmac=dc478ee6f428074956158d7e9224b09456b51e2872f04ff3c69bf4256d1de9e9'
 
 //DOM Elements
 let searchInput = document.querySelector('#search-input');
@@ -40,7 +41,7 @@ function showPlants() {
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <img src=${plant.default_image.regular_url} alt="Placeholder image">
+              <img src=${plant.default_image.regular_url || placeholderImg} alt="Placeholder image">
             </figure>
           </div>
           <div class="card-content">
@@ -68,66 +69,75 @@ function showPlants() {
     return;
   }
 
+  // if (!img) {
+
+  // }
+
   plantsContainer.innerHTML = html
+
   let openModalBtns = document.querySelectorAll(".open_modal");
   let infoModal = document.querySelector('.modal-card-title');
 
   openModalBtns.forEach(function (el) {
     el.addEventListener('click', function (event) {
-      modal.classList.add('is-active');
-      console.log(event.target.id);
+      // modal.classList.add('is-active');
+      // console.log(event.target.id);
       let index = event.target.id;
       let selectedPlant = plants[index]
       console.log(selectedPlant);
-      showDescription();
+      // JSON.stringify(selectedPlant)
+      showDescription(selectedPlant);
+    });
+
+  })
 
 
-      function showDescription () {
-       infoModal.innerHTML = '';
-       let html = "";
-      
-       for (let plant of plants) {
-        // let plant = plants[index]
-      
-        html +=`
-      <div id="plant-modal" class="modal">
+}
+
+function showDescription(plant) {
+  let modalEl = document.querySelector('#plant-modal')
+  modalEl.classList.add('is-active')
+
+  let html = `
           <div class="modal-background"></div>
           <div class="modal-card has background-white py-5 px-5">
             <header class="modal-card-head">
-              // <p class="modal-card-title">Plant Name: ${plant.common_name}</p>
-              <button class="delete" aria-label="close"></button>
+               <p class="modal-card-title">Plant Name: ${plant.common_name}</p>
+              <button class="delete" aria-label="close" onclick="closeModal()"></button>
             </header>
+            <figure class="image is-4by3">
+              <img src=${plant.default_image.regular_url || placeholderImg} alt="Placeholder image">
+            </figure>
             <section class="modal-card-body">
-              <!-- Content ... -->
               <p>watering: ${plant.watering}</p>
               <p>sunlight: ${plant.sunlight}</p>
             </section>
             <footer class="modal-card-foot">
               <button class="button is-success">Add to Garden</button>
-              <button id="close-modal" class="button">Cancel</button>
+              <button class="button close-modal" onclick="closeModal()">Close</button>
             </footer>
-            <button id="close-modal" class="modal-close is-large" aria-label="close"></button>
+           
           </div>
-        </div>`
-      
-      }
-      
-    }
-      
-    });
+  `
 
-  })
 
- 
+  modalEl.innerHTML = html
 }
 
+function closeModal() {
+  let modalEl = document.querySelector('#plant-modal')
+  modalEl.classList.remove('is-active')
+}
 
 let modal = document.querySelector(".modal");
-let modClsBtn = document.querySelector(".modal-close");
-modClsBtn.addEventListener('click', function () {
-  modal.classList.remove('is-active');
-})
+let modClsBtns = document.querySelector(".close-modal");
+// modClsBtns.addEventListener('click', function () {
+//   modal.classList.remove('is-active');
+// })
 
 
-
-
+// modClsBtns.addEventListener(function (el) {
+//   el.addEventListener('click', function (event) {
+//     modal.classList.remove('is-active');
+//   })
+// });
