@@ -39,43 +39,57 @@
 
   <body>
     <!--header and navigation bar section-->
+
     <nav
-      id="navbar"
+      id="navbar-mobile"
       class="navbar"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="">
-          <i class="fa-solid fa-leaf"></i>
+          <i class="fa-solid fa-leaf" id="logo"></i>
         </a>
+      </div>
+      <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+          <!--three lines for hamburger menu-->
+        </label>
 
-        <!--Hamburger menu visible on mobile-->
-        <a
-          role="button"
-          class="navbar-burger"
-          data-target="navbarItems"
-          aria-label="menu"
-          aria-expanded="false"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+        <ul class="menu__box">
+          <li>
+            <a class="menu__item" href="./index.html" id="first-menu-item"
+              >Home</a
+            >
+          </li>
+          <li><a class="menu__item" href="./display.html">My Garden</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav
+      id="navbar-desktop"
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="">
+          <i class="fa-solid fa-leaf" id="logo"></i>
         </a>
       </div>
 
-      <div id="navbarItems" class="navbar-menu" data-visibility="hidden">
-        <!--Hide by default on mobile-->
+      <div id="navbarItems" class="navbar-menu">
         <div class="navbar-start"></div>
         <div class="navbar-end">
-          <a class="navbar-item"> Home </a>
-          <a class="navbar-item"> Item 2 </a>
-          <a class="navbar-item"> Item 3 </a>
-          <a class="navbar-item"> Item 4 </a>
-          <a class="navbar-item"> Item 5 </a>
+          <a class="navbar-item" href="./index.html"> Home </a>
+          <a class="navbar-item" href="./display.html"> My Garden </a>
         </div>
       </div>
     </nav>
+
     <!--Hero section-->
     <section class="hero is-medium">
       <div class="hero-background">
@@ -87,16 +101,62 @@
         />
       </div>
       <div class="hero-body">
-        <h1 class="title hero-text">
-          Build A Dream Garden<br />
-          That Works With Nature, Not Against It
-        </h1>
+        <div class="hero-content">
+          <h1 class="title hero-text">
+            Build A Dream Garden<br />
+            That Works With Nature, Not Against It
+          </h1>
+        </div>
       </div>
     </section>
 
-    <section>
-      <p>Add content here. And more stuff. And even more stuff. And stuff again</p>
-    </section>
+    <main>
+      <div class="columns">
+        <div class="column icon">
+          <i class="fa-solid fa-seedling"></i>
+          <p>Planting Windows</p>
+        </div>
+        <div class="column icon">
+          <i class="fa-solid fa-sun"></i>
+          <p>Light Requirements</p>
+        </div>
+        <div class="column icon last-icon">
+          <i class="fa-solid fa-droplet"></i>
+          <p>Watering Schedule</p>
+        </div>
+      </div>
+
+      <div class="columns">
+        <!--Bob Ross Lipsum-->
+        <div class="column">
+          I started painting as a hobby when I was little. I didn't know I had
+          any talent. I believe talent is just a pursued interest. Anybody can
+          do what I do. Just go back and put one little more happy tree in
+          there. Everybody's different. Trees are different. Let them all be
+          individuals. We'll put some happy little leaves here and there. These
+          things happen automatically. All you have to do is just let them
+          happen. Everyone wants to enjoy the good parts - but you have to build
+          the framework first. Let's do that again. I'm gonna start with a
+          little Alizarin crimson and a touch of Prussian blue. The very fact
+          that you're aware of suffering is enough reason to be overjoyed that
+          you're alive and can experience it. If you do too much it's going to
+          lose its effectiveness. If you don't think every day is a good day -
+          try missing a few. You'll see. In life you need colors. Fluff it up a
+          little and hypnotize it. We can fix anything. Automatically, all of
+          these beautiful, beautiful things will happen. There we go. Look at
+          them little rascals.
+        </div>
+        <div class="column">
+          <img
+            alt="Gardening"
+            src="./assets/images/AdobeStock_248915857_Preview.jpeg"
+          />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Made by Group 2</p>
+    </footer>
   </body>
   <script async type="text/javascript" src="./assets/js/bulma.js"></script>
 </html>
