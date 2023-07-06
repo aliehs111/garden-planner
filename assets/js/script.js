@@ -33,35 +33,38 @@ function showPlants() {
   plantsContainer.innerHTML = '';
   let html = "";
 
-  for (let index in plants) {
+  for (let index in plants) {    
     let plant = plants[index]
-    html += `
-        <div
-        class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src=${plant.default_image.regular_url || placeholderImg} alt="Placeholder image">
-            </figure>
+    if (plant.common_name.toLowerCase().includes(searchInput.value.trim().toLowerCase())) {
+      html += `
+      <div
+      class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src=${plant.default_image.regular_url || placeholderImg} alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+              <p class="title is-4">${plant.common_name}</p>
           </div>
-          <div class="card-content">
-            <div class="media">
-                <p class="title is-4">${plant.common_name}</p>
-            </div>
-  
-            <div class="content">
-            <p class="title is-5">${plant.scientific_name[0]}</p>
 
-      
-            <button id="${index}" class="open_modal button is-success is-rounded" data-target="plant-modal">
-              More Information
-            </button>
-            <button class="local_storage button is-warning is-rounded">Add to Garden</button>
-            </div>
+          <div class="content">
+          <p class="title is-5">${plant.scientific_name[0]}</p>
+
+    
+          <button id="${index}" class="open_modal button is-success is-rounded" data-target="plant-modal">
+            More Information
+          </button>
+          <button class="local_storage button is-warning is-rounded">Add to Garden</button>
           </div>
         </div>
       </div>
-     <button id="close-modal" class="modal-close is-large" aria-label="close"></button>`
+    </div>
+   <button id="close-modal" class="modal-close is-large" aria-label="close"></button>`
+    }
+    
 
   }
   if (plants.length === 0) {
@@ -69,9 +72,8 @@ function showPlants() {
     return;
   }
 
-  // if (!img) {
 
-  // }
+
 
   plantsContainer.innerHTML = html
 
@@ -109,16 +111,15 @@ function showDescription(plant) {
               <img src=${plant.default_image.regular_url || placeholderImg} alt="Placeholder image">
             </figure>
             <section class="modal-card-body">
-              <p>watering: ${plant.watering}</p>
-              <p>sunlight: ${plant.sunlight}</p>
+              <p>Watering needs: ${plant.watering}</p>
+              <p>Sunlight requirements: ${plant.sunlight}</p>
             </section>
             <footer class="modal-card-foot">
               <button class="button is-success">Add to Garden</button>
               <button class="button close-modal" onclick="closeModal()">Close</button>
             </footer>
            
-          </div>
-  `
+          </div>`
 
 
   modalEl.innerHTML = html
@@ -131,13 +132,3 @@ function closeModal() {
 
 let modal = document.querySelector(".modal");
 let modClsBtns = document.querySelector(".close-modal");
-// modClsBtns.addEventListener('click', function () {
-//   modal.classList.remove('is-active');
-// })
-
-
-// modClsBtns.addEventListener(function (el) {
-//   el.addEventListener('click', function (event) {
-//     modal.classList.remove('is-active');
-//   })
-// });
