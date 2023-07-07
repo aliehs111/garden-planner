@@ -252,3 +252,13 @@ footer {
   justify-content: flex-end;
   height: 0px;
 }
+
+.open_modal {
+  background-color: #66683e;
+  color:#cfd8dc;
+}
+
+#search-btn {
+  background-color: #66683e;
+  color:#cfd8dc;
+}

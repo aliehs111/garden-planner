@@ -39,66 +39,63 @@
 
   <body>
     <!--header and navigation bar section-->
+
     <nav
-      id="navbar"
+      id="navbar-mobile"
       class="navbar"
       role="navigation"
       aria-label="main navigation"
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="">
-          <i class="fa-solid fa-leaf"></i>
-        </a>
-
-        <!--Hamburger menu visible on mobile-->
-        <a
-          role="button"
-          class="navbar-burger"
-          data-target="navbarItems"
-          aria-label="menu"
-          aria-expanded="false"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <i class="fa-solid fa-leaf" id="logo"></i>
         </a>
       </div>
+      <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+          <!--three lines for hamburger menu-->
+        </label>
 
-      <div id="navbarItems" class="navbar-menu" data-visibility="hidden">
-        <!--Hide by default on mobile-->
-        <div class="navbar-start"></div>
-        <div class="navbar-end">
-          <a class="navbar-item"> Home </a>
-          <a class="navbar-item"> Item 2 </a>
-          <a class="navbar-item"> Item 3 </a>
-          <a class="navbar-item"> Item 4 </a>
-          <a class="navbar-item"> Item 5 </a>
-        </div>
+        <ul class="menu__box">
+          <li>
+            <a class="menu__item" href="./index.html" id="first-menu-item"
+              >Home</a
+            >
+          </li>
+          <li><a class="menu__item" href="./display.html">My Garden</a></li>
+        </ul>
       </div>
     </nav>
 
-    <div class="control container is-max-desktop columns">
-      <div class="column">
-        <input
-          id="search-input"
-          class="input input is-success column"
-          type="text"
-          placeholder="Choose Plants"
-        />
+    <nav
+      id="navbar-desktop"
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="">
+          <i class="fa-solid fa-leaf" id="logo"></i>
+        </a>
       </div>
-      <div class="column">
-        <button id="search-btn" class="button is-primary submit-btn column">
-          Submit
-        </button>
+
+      <div id="navbarItems" class="navbar-menu">
+        <div class="navbar-start"></div>
+        <div class="navbar-end">
+          <a class="navbar-item" href="./index.html"> Home </a>
+          <a class="navbar-item" href="./display.html"> My Garden </a>
+        </div>
       </div>
-    </div>
+    </nav>
 
   <div class="control container is-max-desktop columns">
     <div class="column">
       <input id="search-input" class="input input is-success column" type="text" placeholder="Choose Plants">
     </div>
     <div class="column">
-      <button id="search-btn" class="button is-primary submit-btn column">Submit</button>
+      <button id="search-btn" class="button submit-btn column">Search</button>
     </div>
   </div>
 
@@ -122,7 +119,7 @@
               <p id="common-name" class="title is-4">John Smith</p>
               <p class="subtitle is-6">@johnsmith</p>
               <!--bulma button trigger for model-->
-              <button class="open_modal button is-success is-rounded"
+              <button class="open_modal button is-rounded"
                 data-target="plant-modal">
                 More Information
               </button>
@@ -135,7 +132,7 @@
 
   </div>
 
-  <!--bulma modal card - will use to show plant description-->
+  <!--bulma modal card - to show plant description-->
   <div id="plant-modal" class="modal">
     <div class="modal-background"></div>
     <div class="modal-card has background-white py-5 px-5">
@@ -150,7 +147,6 @@
 
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success">Add to Garden</button>
         <button class="button close-modal" onclick="closeModal()">Close</button>
       </footer>
       <button id="close-modal" class="modal-close is-large close-modal" aria-label="close"></button>
