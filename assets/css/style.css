@@ -2,6 +2,10 @@
 * {
   font-family: "Figtree", sans-serif;
 }
+/*primary theme color*/
+:root {
+  --primary-green: #66683e;
+}
 
 html {
   font-size: calc(15px + 0.390625vw);
@@ -67,7 +71,7 @@ u .hero-background {
 }
 
 i {
-  color: #66683e;
+  color: var(--primary-green);
   font-size: 2em;
 }
 
@@ -86,7 +90,7 @@ i {
   width: 100%;
   margin-bottom: 0;
   padding: 2%;
-  background-color: #66683e;
+  background-color: var(--primary-green);
 }
 
 .navbar-item {
@@ -123,9 +127,12 @@ i {
   text-align: center;
 }
 
-/*///////////*/
 footer {
-  background-color: #66683e;
+  background-color: var(--primary-green);
+}
+
+.footer-image {
+  max-height: 100px;
 }
 
 /*/////Media Queries//////*/
@@ -254,11 +261,11 @@ footer {
 }
 
 .open_modal {
-  background-color: #66683e;
-  color:#cfd8dc;
+  background-color: var(--primary-green);
+  color: #cfd8dc;
 }
 
 #search-btn {
-  background-color: #66683e;
-  color:#cfd8dc;
+  background-color: var(--primary-green);
+  color: #cfd8dc;
 }
