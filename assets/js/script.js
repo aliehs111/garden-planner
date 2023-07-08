@@ -12,6 +12,7 @@ let plantsContainer = document.getElementById("plants-container");
 
 document.getElementById("plantInfo").hidden = true;
 
+// Fetch data from Perenual API when search button is clicked
 searchBtn.addEventListener("click", function () {
   let searchText = searchInput.value.trim();
   let url = `${plantApiRootUrl}/species-list?page=1&key=${plantApiKey}&q=${searchText}`;
@@ -53,7 +54,7 @@ function showPlants() {
         </div>
         <div class="card-content">
           <div class="media">
-              <p class="title is-4">${plant.common_name}</p>
+              <p class="title is-4 common-name">${plant.common_name}</p>
           </div>
 
           <div class="content">
@@ -63,7 +64,7 @@ function showPlants() {
           <button id="${index}" class="open_modal button is-rounded" data-target="plant-modal">
             More Information
           </button>
-          <button class="local_storage button is-warning is-rounded">Add to Garden</button>
+          <button class="local_storage button is-warning is-rounded add-to-garden">Add to Garden</button>
           </div>
         </div>
       </div>
@@ -77,6 +78,32 @@ function showPlants() {
   }
 
   plantsContainer.innerHTML = html;
+
+  // Add eventListener for "Add To Garden" buttons on cards when they get created
+  var gardenBtns = document.getElementsByClassName("add-to-garden");
+
+  console.log(gardenBtns.length);
+  for (let i = 0; i < gardenBtns.length; i++) {
+    gardenBtns[i].addEventListener("click", function () {
+      // Retrieve the species commmon name when "Add to Garden" button is clicked
+      let commonName =
+        document.getElementsByClassName("common-name")[i].textContent;
+
+      gardenItems.push({
+        plantName: commonName,
+      });
+
+      // Save the species common name to local storage
+      localStorage.setItem("commonNames", JSON.stringify(gardenItems));
+
+      console.log(commonName, "added to local storage");
+
+      // Add plant name to "My Garden" dropdown list when button is clicked
+      var li = document.createElement("li");
+      li.textContent = commonName;
+      dropdownContent.appendChild(li);
+    });
+  }
 
   let openModalBtns = document.querySelectorAll(".open_modal");
   let infoModal = document.querySelector(".modal-card-title");
