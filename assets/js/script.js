@@ -83,6 +83,26 @@ function showPlants() {
       let selectedPlant = plants[index]
       console.log(selectedPlant);
       showDescription(selectedPlant);
+  console.log(gardenBtns.length);
+  for (let i = 0; i < gardenBtns.length; i++) {
+    gardenBtns[i].addEventListener("click", function () {
+      // Retrieve the species commmon name when "Add to Garden" button is clicked
+      let commonName =
+        document.getElementsByClassName("common-name")[i].textContent;
+
+      gardenItems.push({
+        plantName: commonName,
+      });
+
+      // Save the species common name to local storage
+      localStorage.setItem("commonNames", JSON.stringify(gardenItems));
+
+      console.log(commonName, "added to local storage");
+
+      // Add plant name to "My Garden" dropdown list when button is clicked
+      var li = document.createElement("li");
+      li.textContent = commonName;
+      dropdownContent.appendChild(li);
     });
 
   })
@@ -129,3 +149,23 @@ let modClsBtns = document.querySelector(".close-modal");
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////
+var gardenItems = []; // Will be an array of objects with plant common names
+
+// If available, retrieve previous garden items from local storage
+if (localStorage.getItem("commonNames")) {
+  gardenItems = JSON.parse(localStorage.getItem("commonNames")); // Converts back to an array
+  console.log("Retrieved gardenItems from local storage:", gardenItems);
+} else {
+  console.log("No gardenItems found in local storage");
+}
+
+// Add plant names from local storage to "My Garden" dropdown list on initial page load
+var dropdownContent = document.getElementById("dropdown-content");
+dropdownContent.textContent = "";
+
+for (let i = 0; i < gardenItems.length; i++) {
+  var li = document.createElement("li");
+  li.textContent = gardenItems[i].plantName;
+  dropdownContent.appendChild(li);
+}
