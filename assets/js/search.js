@@ -5,6 +5,7 @@ var data = {
   name: 'Store'
 }
 
+//used 'GET' to avoid CORS error
 var fetchData = {
   method: 'GET',
   mode: 'no-cors',
@@ -13,6 +14,7 @@ var fetchData = {
   })
 }
 
+//pulling garden center search results
 fetch(apiUrl)
   .then((response) => {
     //handle the response
