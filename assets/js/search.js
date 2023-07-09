@@ -26,4 +26,13 @@ fetch(apiUrl)
     console.log(error);
   });
 
+  function displaySearch(data) {
+    var address = data.location[0];
+    var searchDiv = document.getElementById("address");
+    var gardenCenter = address.strLocation;
+    var heading = document.createElement("h3");
+    heading.innerHTML = address;
+    searchDiv. appendChild(heading);
+  }
+
 
