@@ -287,3 +287,15 @@ input:active {
   background-color: var(--primary-green);
   color: #cfd8dc;
 }
+
+#zip-input {
+  margin-bottom: 250px;
+}
+
+/* #map {
+  height: 80%;
+  width: 80%;
+  margin: auto;
+} */
+
+
