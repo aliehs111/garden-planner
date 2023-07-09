@@ -2,12 +2,96 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garden Companion Home</title>
+    <!--import Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300&family=Montagu+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!--import font icons (Font-Awesome)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/leaf-solid-icon-white.png"
+    />
     <h1>Garden Store Finder</h1>
+    <button>Back to Home</button>
 </head>
 
 <body>
-   
-    <input id="input" style="height: 75px; width: 1000px">
+    <nav
+    id="navbar-mobile"
+    class="navbar"
+    role="navigation"
+    aria-label="main navigation"
+  >
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <i class="fa-solid fa-leaf" id="logo"></i>
+      </a>
+    </div>
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+        <!--three lines for hamburger menu-->
+      </label>
+
+      <ul class="menu__box">
+        <li>
+          <a class="menu__item" href="./index.html" id="first-menu-item"
+            >Home</a
+          >
+        </li>
+        <li><a class="menu__item" href="./display.html">My Garden</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav
+    id="navbar-desktop"
+    class="navbar"
+    role="navigation"
+    aria-label="main navigation"
+  >
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <i class="fa-solid fa-leaf" id="logo"></i>
+      </a>
+    </div>
+
+    <div id="navbarItems" class="navbar-menu">
+      <div class="navbar-start"></div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="./index.html"> Home </a>
+        <a class="navbar-item" href="./display.html"> My Garden </a>
+      </div>
+    </div>
+  </nav>
+   <label><input id="input" style="height: 75px; width: 1000px"></label>
+    
 
     <div id="map" style="height: 1000px; width: 1000px"></div>
     <script src="./assets/js/map.js"></script>

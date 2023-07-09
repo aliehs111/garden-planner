@@ -7,7 +7,7 @@ function initMap() {
         center: location,
         zoom: 9
     }
-    if(navigator.geolocation) {
+    if (navigator.geolocation) {
         console.log('geolocation is here!');
 
         navigator.geolocation.getCurrentPosition((loc) => {
@@ -15,17 +15,36 @@ function initMap() {
             location.lng = loc.coords.longitude;
             map = new google.maps.Map(document.getElementById("map"), options);
         },
-        (err) => {
-            console.log('user disabled location');
-            map = new google.maps.Map(document.getElementById("map"), options);
-        }
+            (err) => {
+                console.log('user disabled location');
+                map = new google.maps.Map(document.getElementById("map"), options);
+            }
         )
 
-    }else {
-            console.log('geolocation not supported :(');
-            map = new google.maps.Map(document.getElementById("map"), options);
-        }
-    
-autocomplete = new google.maps.places.Autocomplete(document.getElementById("input"))
+    } else {
+        console.log('geolocation not supported');
+        map = new google.maps.Map(document.getElementById("map"), options);
+    }
 
+    autocomplete = new google.maps.places.Autocomplete(document.getElementById("input"), 
+    {
+        componentRestrictions: {'country': ['us']},
+        fields: ['geometry', 'name'],
+        types: ['establishment'],
+
+    })
+    autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        new google.maps.Marker({
+            position: place.geometry.location,
+            title: place.name,
+            map: map
+        })
+    });
 }
+
+
+
+
+
+
