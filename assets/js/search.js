@@ -1,9 +1,11 @@
-var apiUrl = 'https://api.geoapify.com/v2/places?categories=commercial.garden&filter=place:519a9428736f5e53c05927ae57eec7c34240f00101f90188f83a0000000000c00209920308526963686d6f6e64&limit=20&apiKey=9cf555b9f2b34c039bea2f4d4a04b3cf';
+var apiUrl = 'https://api.geoapify.com/v2/places?categories=commercial.garden&filter=circle:-77.43428,37.5385087,50000&bias=proximity:-77.43428,37.5385087&limit=20&apiKey=9cf555b9f2b34c039bea2f4d4a04b3cf';
+var placeId = ''
 var ul = document.createElement('ul');
 var data = {
   name: 'Store'
 }
 
+//used 'GET' to avoid CORS error
 var fetchData = {
   method: 'GET',
   mode: 'no-cors',
@@ -12,7 +14,8 @@ var fetchData = {
   })
 }
 
-fetch('https://api.geoapify.com/v2/places?categories=commercial.garden&filter=place:519a9428736f5e53c05927ae57eec7c34240f00101f90188f83a0000000000c00209920308526963686d6f6e64&limit=20&apiKey=9cf555b9f2b34c039bea2f4d4a04b3cf')
+//pulling garden center search results
+fetch(apiUrl)
   .then((response) => {
     //handle the response
     return response.json();
@@ -25,7 +28,7 @@ fetch('https://api.geoapify.com/v2/places?categories=commercial.garden&filter=pl
     console.log(error);
   });
 
-ul.appendChild(list);
+ // ul.appendChild(list);
 
 
 
