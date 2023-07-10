@@ -20,7 +20,7 @@ Future releases include plans for improved UI and storage features, as well as n
 
 ### Features
 
-Responsive navigation bar design, interactive search bar resulting in cards and modals created with Bulma, save plant names within "My Garden" inventory using local storage, so records persist evena after the browser is closed.
+Responsive navigation bar design, interactive search bar resulting in cards and modals created with Bulma, save plant names within "My Garden" inventory using local storage so records persist even after the browser is closed.
 
 
 ## Link to deployed application
