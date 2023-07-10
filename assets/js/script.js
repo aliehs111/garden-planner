@@ -128,7 +128,7 @@ function showPlants() {
           // Save the species common name to local storage
           localStorage.setItem("commonNames", JSON.stringify(gardenItems));
 
-          console.log(commonName, "added to local storage");
+          //console.log(commonName, "added to local storage");
 
           // Add plant name to "My Garden" dropdown list when button is clicked
           var li = document.createElement("li");

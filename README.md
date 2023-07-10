@@ -3,7 +3,7 @@
 
 ## Description
 
-This application is a working prototype for Garden Planner. In the current iteration, the application can be used to search for various plants and view their sunlight and watering requirements. This data is obtained by querying the [Perenual](https://perenual.com/docs/api) API. Users also have the option to add plants to the "My Garden" dropdown list as a way to keep an inventory of what they currently have planted in their garden.
+This application is a working prototype for the Garden Planner. In the current iteration, the application can be used to search for various plants and view their sunlight and watering requirements. This data is obtained by querying the [Perenual](https://perenual.com/docs/api) API. Users also have the option to add plants to the "My Garden" dropdown list as a way to keep an inventory of what they currently have planted in their garden.
 
 The application also includes a feature in which users can find local gardening stores near them.
 
@@ -21,7 +21,7 @@ Future releases include plans for improved UI and storage features, as well as n
 
 ### Features
 
-Responsive navigation bar design, interactive search bar resulting in cards and modals created with Bulma, save plant names within "My Garden" inventory using local storage, so records persist evena after the browser is closed.
+Responsive navigation bar design, interactive search bar resulting in cards and modals created with Bulma, save plant names within "My Garden" inventory using local storage; so records persist even after the browser is closed.
 
 
 ## Link to deployed application
