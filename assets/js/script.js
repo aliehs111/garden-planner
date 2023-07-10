@@ -198,3 +198,7 @@ for (let i = 0; i < gardenItems.length; i++) {
   li.textContent = gardenItems[i].plantName;
   dropdownContent.appendChild(li);
 }
+
+document.getElementById("search_stores").onclick = function() {
+  window.location.href = "https://aliehs111.github.io/garden-planner/map";
+}
