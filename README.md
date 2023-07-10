@@ -13,9 +13,8 @@ Future releases include plans for improved UI and storage features, as well as n
 
 ### Page preview
 
-![image](https://github.com/aliehs111/garden-planner/assets/60265279/63cc14ef-fd7f-49c8-806b-e6d733e48c3a)
+![image](https://github.com/aliehs111/garden-planner/assets/60265279/a413957a-bf01-4c48-95bf-05eeedabb32d)
 
-![image](https://github.com/aliehs111/garden-planner/assets/60265279/65872e26-84c5-4d1d-bf6b-e9e9dedcbeb3)
 
 
 
@@ -26,7 +25,7 @@ Responsive navigation bar design, interactive search bar resulting in cards and 
 
 ## Link to deployed application
 
-TBD
+https://aliehs111.github.io/garden-planner/
 
 ## Credits
 
